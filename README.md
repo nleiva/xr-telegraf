@@ -118,3 +118,4 @@ Use [dashboard.json](dashboard.json).
 ## Links
 
 - [IOS XR Plugin](https://github.com/ios-xr/telegraf-plugin)
+- [Cisco GNMI Telemetry](https://docs.influxdata.com/telegraf/v1.11/plugins/plugin-list/#cisco_telemetry_gnmi)
