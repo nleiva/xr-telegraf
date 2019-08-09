@@ -115,6 +115,63 @@ Execute this: `./telegraf --config telegraf.conf`.
 
 Use [dashboard.json](dashboard.json).
 
+### Querying the DB for troubleshooting
+
+```json
+$ curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "db=mdt_db" --data-urlencode "epoch=ms"  --data-urlencode "q=SELECT max(\"total-cpu-one-minute\") FROM \"Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/cpu-utilization\""
+{
+    "results": [
+        {
+            "statement_id": 0,
+            "series": [
+                {
+                    "name": "Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/cpu-utilization",
+                    "columns": [
+                        "time",
+                        "max"
+                    ],
+                    "values": [
+                        [
+                            1565292318129,
+                            2
+                        ]
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+```bash
+$ curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "db=mdt_db" --data-urlencode "epoch=ms"  --data-urlencode "q=SELECT \"adjacency-state\" FROM \"Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/levels/level/adjacencies/adjacency\""
+{
+    "results": [
+        {
+            "statement_id": 0,
+            "series": [
+                {
+                    "name": "Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/levels/level/adjacencies/adjacency",
+                    "columns": [
+                        "time",
+                        "adjacency-state"
+                    ],
+                    "values": [
+                        [
+                            1565292322899,
+                            "isis-adj-up-state"
+                        ],
+                        [
+                            1565292322899,
+                            "isis-adj-up-state"
+                        ],
+                        [
+                            1565292357571,
+                            "isis-adj-up-state"
+                        ],
+                        ...
+```
+
 ## Links
 
 - [IOS XR Plugin](https://github.com/ios-xr/telegraf-plugin)
