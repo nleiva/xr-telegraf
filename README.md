@@ -143,8 +143,8 @@ $ curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "db=mdt_db"
 }
 ```
 
-```bash
-$ curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "db=mdt_db" --data-urlencode "epoch=ms"  --data-urlencode "q=SELECT \"adjacency-state\" FROM \"Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/levels/level/adjacencies/adjacency\""
+```json
+$ curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "db=mdt_db" --data-urlencode "epoch=ms" --data-urlencode "q=SELECT \"adjacency-interface\" FROM \"Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/levels/level/adjacencies/adjacency\" WHERE ("Producer" =~ /^mrstn-5501-2\.cisco\.com$/)"
 {
     "results": [
         {
@@ -154,21 +154,20 @@ $ curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "db=mdt_db"
                     "name": "Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/levels/level/adjacencies/adjacency",
                     "columns": [
                         "time",
-                        "adjacency-state"
+                        "adjacency-interface"
                     ],
                     "values": [
                         [
                             1565292322899,
-                            "isis-adj-up-state"
+                            "HundredGigE0/0/1/1"
                         ],
                         [
                             1565292322899,
-                            "isis-adj-up-state"
+                            "HundredGigE0/0/1/2"
                         ],
                         [
                             1565292357571,
-                            "isis-adj-up-state"
-                        ],
+                            "HundredGigE0/0/1/1"
                         ...
 ```
 
