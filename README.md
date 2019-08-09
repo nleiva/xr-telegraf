@@ -59,7 +59,7 @@ MDT_DB=`echo q=CREATE DATABASE mdt_db WITH DURATION ${MDT_DURATION}h SHARD DURAT
 curl -s -XPOST http://localhost:8086/query --data-urlencode "$MDT_DB"
 ```
 
-Validate with: `curl -s -XPOST http://localhost:8086/query --data-urlencode "$MDT_DB"`.
+Validate with: `curl -s -XPOST http://localhost:8086/query --data-urlencode "q=show databases"`.
 
 ## Run Grafana
 
