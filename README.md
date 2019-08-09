@@ -144,7 +144,7 @@ $ curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "db=mdt_db"
 ```
 
 ```json
-$ curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "db=mdt_db" --data-urlencode "epoch=ms" --data-urlencode "q=SELECT \"adjacency-interface\" FROM \"Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/levels/level/adjacencies/adjacency\" WHERE ("Producer" =~ /^mrstn-5501-2\.cisco\.com$/)"
+$ curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "db=mdt_db" --data-urlencode "epoch=ms" --data-urlencode "q=SELECT \"adjacency-interface\" FROM \"Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/levels/level/adjacencies/adjacency\" WHERE ("Producer" =~ /^mrstn-5501-2\.cisco\.com$/ AND time >= now() - 60m)"
 {
     "results": [
         {
@@ -158,16 +158,17 @@ $ curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "db=mdt_db"
                     ],
                     "values": [
                         [
-                            1565292322899,
+                            1565377154666,
+                            "HundredGigE0/0/1/0"
+                        ],
+                        [
+                            1565377154666,
                             "HundredGigE0/0/1/1"
                         ],
                         [
-                            1565292322899,
+                            1565377154666,
                             "HundredGigE0/0/1/2"
                         ],
-                        [
-                            1565292357571,
-                            "HundredGigE0/0/1/1"
                         ...
 ```
 
