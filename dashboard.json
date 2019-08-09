@@ -546,7 +546,7 @@
               [
                 {
                   "params": [
-                    "interface-counts__interface-count"
+                    "interface-counts/interface-count"
                   ],
                   "type": "field"
                 },
@@ -590,7 +590,7 @@
               [
                 {
                   "params": [
-                    "interface-counts__up-interface-count"
+                    "interface-counts/up-interface-count"
                   ],
                   "type": "field"
                 },
@@ -634,7 +634,7 @@
               [
                 {
                   "params": [
-                    "interface-counts__down-interface-count"
+                    "interface-counts/down-interface-count"
                   ],
                   "type": "field"
                 },
@@ -678,7 +678,7 @@
               [
                 {
                   "params": [
-                    "interface-counts__admin-down-interface-count"
+                    "interface-counts/admin-down-interface-count"
                   ],
                   "type": "field"
                 },
@@ -699,7 +699,8 @@
         ],
         "title": "Interface Summary",
         "transform": "timeseries_aggregations",
-        "type": "table"
+        "type": "table",
+        "options": {}
       },
       {
         "aliasColors": {},
